@@ -1,18 +1,18 @@
 import sys
 
-def first_december(input):
+def inverse_captcha(input):
     sum = 0;
+    step = 1
+
     for a in range(len(input)):
-        if a+1 != len(input) and input[a] == input[a+1]:
+        next_index = (a + step) % len(input)
+        if input[a] == input[next_index]:
             sum += int(input[a])
-        if a+1 == len(input):
-            if input[0] == input[-1]:
-                sum += int(input[a])
     print sum
 
 
 def main(input):
-    first_december(input)
+    inverse_captcha(input)
 
 if __name__ == "__main__":
     main(sys.argv[1])
